@@ -34,17 +34,31 @@ instinto-felino/
 - `comparacao-vs.webp` -> reserva (comparação visual alternativa)
 - `comentarios-facebook/instagram.webp` -> prova social (TROCAR por prints em PT-BR)
 
-## Técnicas aplicadas
+## Técnicas aplicadas (otimizadas para o BR)
 - Primeira dobra 100svh com botão "Quero deixar meu gato feliz" sempre visível.
 - Seletor de quantidade (1 un / 2+1 / 3+2) já na primeira dobra, padrão no kit do meio (ancoragem).
 - Ancoragem: preço "de/por" riscado + badge "Economize R$ X" + "Mais escolhido" no meio.
-- Cronômetro regressivo de escassez fixo no topo (barra laranja).
-- Total e parcelamento atualizam ao trocar de kit.
-- Barra de compra fixa no rodapé do mobile.
+- Cronômetro regressivo de escassez fixo no topo + barra de estoque ("restam X kits").
+- Pix em destaque (selo "5% OFF") — Pix é ~49% das vendas online no BR e converte +90%.
+- Chips de meios de pagamento (Pix/Cartão 12x/Boleto) + selos de segurança (SSL, garantia, rastreio).
+- Botão flutuante de WhatsApp (aparece só se configurado).
+- Total e parcelamento atualizam ao trocar de kit; barra de compra fixa no mobile.
+
+## Variáveis de ambiente (links de checkout + WhatsApp)
+Os links NÃO ficam no código — vêm de variáveis de ambiente, injetadas em `assets/js/config.js`
+no start do container (via `envsubst`, a partir de `config.template.js`).
+
+1. `cp .env.example .env`
+2. Preencha no `.env`:
+   - `CHECKOUT_URL_1/2/3` — link de checkout de cada kit (Yampi/Appmax/Cartpanda/Shopify).
+   - `WHATSAPP_URL` — link wa.me (vazio = esconde o botão).
+3. `docker compose up -d --build`
+
+Sem Docker (abrindo o `index.html` direto), edite `assets/js/config.js` à mão.
+O `.env` é ignorado pelo git (`.gitignore`).
 
 ## O QUE TROCAR ANTES DE PUBLICAR
-- **Checkout:** em `assets/js/script.js`, função `irCheckout()` -> coloque seu link
-  (Yampi/Appmax/Cartpanda) passando o kit selecionado (variável `selecionado`).
+- **Checkout / WhatsApp:** preencher no `.env` (ver seção acima).
 - **Preços:** R$ 97 / 167 / 227 são exemplo. Ajuste em `KITS` no `script.js` E nos cards do `index.html`.
 - **Imagens:** as atuais são de referência (do Teazys). Para a loja real, use fotos/vídeos do seu
   fornecedor — inclusive porque a foto de estúdio tem o nome do concorrente embossado na bola.

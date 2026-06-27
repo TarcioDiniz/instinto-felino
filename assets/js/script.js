@@ -41,16 +41,29 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  /* --- Checkout (placeholder) --- */
+  /* --- Checkout: usa os links das variáveis de ambiente (window.IF_CONFIG) --- */
+  var CFG = window.IF_CONFIG || {};
   function irCheckout() {
-    // TODO: troque pelo seu link de checkout com o kit selecionado.
-    // Ex.: window.location.href = 'https://seu-checkout.com/?kit=' + selecionado;
-    console.log('Checkout — kit selecionado:', selecionado, KITS[selecionado]);
-    document.getElementById('oferta').scrollIntoView({ behavior: 'smooth' });
+    var urls = { '1': CFG.CHECKOUT_URL_1, '2': CFG.CHECKOUT_URL_2, '3': CFG.CHECKOUT_URL_3 };
+    var url = urls[selecionado];
+    if (url && /^https?:\/\//.test(url)) {
+      window.location.href = url;
+    } else {
+      // Sem link configurado (.env não preenchido): rola para a oferta e avisa.
+      console.warn('Checkout do kit ' + selecionado + ' não configurado. Defina CHECKOUT_URL_' + selecionado + ' no .env.');
+      document.getElementById('oferta').scrollIntoView({ behavior: 'smooth' });
+    }
   }
   document.querySelectorAll('[data-checkout]').forEach(function (b) {
     b.addEventListener('click', irCheckout);
   });
+
+  /* --- Botão flutuante de WhatsApp (aparece só se configurado) --- */
+  var wpp = document.getElementById('wppBtn');
+  if (wpp && CFG.WHATSAPP_URL && /^https?:\/\//.test(CFG.WHATSAPP_URL)) {
+    wpp.href = CFG.WHATSAPP_URL;
+    wpp.classList.add('on');
+  }
 
   /* --- CTAs que rolam até a oferta do topo --- */
   document.querySelectorAll('[data-scroll-top]').forEach(function (b) {

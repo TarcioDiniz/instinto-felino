@@ -1,0 +1,2 @@
+# Scripts shell sempre com LF (necessário para rodar no container Linux)
+*.sh text eol=lf

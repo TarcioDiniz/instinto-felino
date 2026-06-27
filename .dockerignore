@@ -5,3 +5,5 @@ docker-compose.yml
 .dockerignore
 LEIA-ME.md
 *.md
+.env
+.env.example

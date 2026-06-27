@@ -102,10 +102,10 @@ h2{font-size:clamp(25px,4vw,38px);margin-bottom:12px}
 .offer .tag{position:absolute;top:-10px;right:12px;background:var(--laranja);color:#fff;font-size:10.5px;font-weight:700;padding:3px 10px;border-radius:50px;letter-spacing:.3px}
 .offer .save{position:absolute;top:-10px;left:46px;background:var(--verde);color:#fff;font-size:10.5px;font-weight:700;padding:3px 10px;border-radius:50px}
 
-.totline{display:flex;align-items:baseline;justify-content:space-between;margin:4px 2px 12px}
+.totline{display:flex;align-items:center;justify-content:space-between;margin:4px 2px 12px}
 .totline .big{font-size:26px;font-weight:800}
 .totline .big small{font-size:14px;font-weight:600}
-.totline .parc{font-size:13px;color:var(--cinza)}
+.totline .parc{font-size:13px;color:var(--cinza);display:flex;flex-direction:column;align-items:flex-end;gap:4px}
 
 .hero-badges{display:flex;gap:14px;margin-top:12px;flex-wrap:wrap;justify-content:center}
 .hero-badges div{display:flex;align-items:center;gap:6px;font-size:12.5px;color:var(--cinza);font-weight:500}
@@ -228,9 +228,12 @@ h2{font-size:clamp(25px,4vw,38px);margin-bottom:12px}
   .offers{gap:7px;margin-bottom:10px}
   .offer{padding:9px 12px;border-radius:12px}
   .rate{font-size:12.5px}
+  .stockbar{margin:2px 0 8px}
   .totline{margin:2px 2px 9px}
   .totline .big{font-size:22px}
   .hero-badges{margin-top:8px;gap:10px}
+  .pay-row{margin-top:8px;gap:6px}
+  .pay-row .chip{font-size:11px;padding:3px 8px}
 }
 @media (max-width:560px){
   .sec{padding:46px 0}
@@ -253,4 +256,53 @@ h2{font-size:clamp(25px,4vw,38px);margin-bottom:12px}
   .offer .info .d{font-size:12px}
   .totline{margin:2px 2px 9px}
   .hero-badges{margin-top:8px}
+  .stockbar{margin:2px 0 9px !important}
+}
+
+/* ===== Componentes BR: estoque, Pix, pagamento, segurança, WhatsApp ===== */
+
+/* Barra de escassez de estoque */
+.stockbar{margin:4px 0 12px}
+.stockbar .lbl{display:flex;justify-content:space-between;font-size:12.5px;font-weight:600;color:var(--laranja-esc);margin-bottom:5px}
+.stockbar .track{height:7px;border-radius:50px;background:#FFE3D6;overflow:hidden}
+.stockbar .fill{height:100%;width:18%;border-radius:50px;background:linear-gradient(90deg,var(--laranja),#FF9A3D);animation:none}
+
+/* selo de desconto Pix */
+.pix-off{display:inline-flex;align-items:center;gap:6px;background:#E8F8EE;color:#0E8E4F;font-weight:700;font-size:12.5px;padding:3px 10px;border-radius:50px}
+.pix-off .px{background:#0E8E4F;color:#fff;border-radius:5px;padding:1px 5px;font-size:11px}
+
+/* linha de pagamento + segurança na primeira dobra */
+.pay-row{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:10px}
+.chip{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;font-weight:600;color:var(--cinza);
+  border:1px solid var(--borda);border-radius:8px;padding:4px 9px;background:#fff}
+.chip.pix{color:#0E8E4F;border-color:#BFE9CF;background:#F3FBF6}
+.chip.sec{color:var(--verde)}
+
+/* Seção de meios de pagamento */
+.paymethods{background:var(--cinza-claro)}
+.paymethods .grid{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:24px}
+.paymethods .pm{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--borda);
+  border-radius:12px;padding:12px 18px;font-weight:700;font-size:15px;box-shadow:var(--sombra)}
+.paymethods .pm .ic{font-size:20px}
+.paymethods .pm.pix{color:#0E8E4F}
+
+/* Selos de segurança */
+.seals{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:36px}
+.seal-card{text-align:center;background:#fff;border:1px solid var(--borda);border-radius:var(--raio);padding:22px 14px;box-shadow:var(--sombra)}
+.seal-card .ic{font-size:30px;margin-bottom:8px}
+.seal-card h3{font-size:15px;margin-bottom:4px}
+.seal-card p{font-size:12.5px;color:var(--cinza)}
+
+/* Botão flutuante de WhatsApp */
+.wpp{position:fixed;right:18px;bottom:88px;z-index:65;width:56px;height:56px;border-radius:50%;
+  background:#25D366;display:none;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(0,0,0,.22);
+  color:#fff;font-size:30px;transition:transform .15s}
+.wpp:hover{transform:scale(1.07)}
+.wpp.on{display:flex}
+@media (max-width:900px){ .wpp{bottom:84px;right:14px;width:52px;height:52px;font-size:27px} }
+
+@media (max-width:900px){
+  .seals{grid-template-columns:repeat(2,1fr);gap:12px}
+  .seal-card{padding:18px 10px}
+  .paymethods .pm{padding:10px 14px;font-size:14px}
 }

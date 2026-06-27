@@ -1,0 +1,6 @@
+# Variáveis de ambiente com links reais (NÃO versionar)
+.env
+
+# Sistema
+.DS_Store
+Thumbs.db

@@ -55,6 +55,12 @@
         <h1>Desperte o <span class="laranja">instinto caçador</span> do seu gato — mesmo quando você não está.</h1>
         <p class="lead">A bola interativa que se move sozinha como uma presa de verdade. Escolha seu kit:</p>
 
+        <!-- Escassez de estoque -->
+        <div class="stockbar">
+          <div class="lbl"><span>🔥 Estoque quase no fim</span><span>restam 7 kits</span></div>
+          <div class="track"><div class="fill"></div></div>
+        </div>
+
         <!-- Seletor de quantidade / ancoragem -->
         <div class="offers">
           <div class="offer" data-kit="1">
@@ -81,17 +87,21 @@
 
         <div class="totline">
           <div class="big" id="totNow"><small>Total: </small>R$ 167</div>
-          <div class="parc" id="totParc">ou 12x de R$ 16,85</div>
+          <div class="parc">
+            <span id="totParc">ou 12x de R$ 16,85</span>
+            <span class="pix-off"><span class="px">Pix</span> 5% OFF</span>
+          </div>
         </div>
 
         <button class="btn full btn-pulse" data-checkout>QUERO DEIXAR MEU GATO FELIZ
           <span class="sm">Frete grátis • Pix, cartão ou boleto</span>
         </button>
 
-        <div class="hero-badges">
-          <div>🚚 Frete grátis</div>
-          <div>↩️ 30 dias de garantia</div>
-          <div>🔒 Pagamento seguro</div>
+        <div class="pay-row">
+          <span class="chip pix">⚡ Pix</span>
+          <span class="chip">💳 Cartão 12x</span>
+          <span class="chip">🧾 Boleto</span>
+          <span class="chip sec">🔒 Compra 100% segura</span>
         </div>
       </div>
 
@@ -236,6 +246,32 @@
   </div>
 </section>
 
+<!-- MEIOS DE PAGAMENTO -->
+<section class="sec paymethods center">
+  <div class="container">
+    <h2>Pague do seu jeito, com total segurança</h2>
+    <p class="sub">No Pix a aprovação é na hora e você ganha 5% de desconto. No cartão, parcele em até 12x.</p>
+    <div class="grid">
+      <div class="pm pix"><span class="ic">⚡</span> Pix <small style="font-weight:600;color:#0E8E4F">-5%</small></div>
+      <div class="pm"><span class="ic">💳</span> Cartão até 12x</div>
+      <div class="pm"><span class="ic">🧾</span> Boleto</div>
+    </div>
+  </div>
+</section>
+
+<!-- SELOS DE SEGURANÇA -->
+<section class="sec center">
+  <div class="container">
+    <h2>Compre com tranquilidade</h2>
+    <div class="seals">
+      <div class="seal-card"><div class="ic">🔒</div><h3>Site Seguro</h3><p>Dados protegidos com criptografia SSL.</p></div>
+      <div class="seal-card"><div class="ic">🛡️</div><h3>Compra Garantida</h3><p>Reembolso total em até 30 dias.</p></div>
+      <div class="seal-card"><div class="ic">📦</div><h3>Envio Rastreado</h3><p>Acompanhe seu pedido até a porta.</p></div>
+      <div class="seal-card"><div class="ic">💬</div><h3>Suporte Real</h3><p>Atendimento humano por WhatsApp.</p></div>
+    </div>
+  </div>
+</section>
+
 <!-- GARANTIA -->
 <section class="sec garantia">
   <div class="container">
@@ -296,6 +332,10 @@
   <button class="btn" data-scroll-top>Comprar agora →</button>
 </div>
 
+<!-- Botão flutuante de WhatsApp (aparece só se WHATSAPP_URL estiver configurada) -->
+<a id="wppBtn" class="wpp" href="#" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">💬</a>
+
+<script src="assets/js/config.js"></script>
 <script src="assets/js/script.js"></script>
 </body>
 </html>
