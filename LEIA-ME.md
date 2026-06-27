@@ -5,7 +5,15 @@ com seletor de quantidade na primeira dobra, ancoragem de preço e cronômetro d
 
 ## Como abrir
 - Duplo-clique em `index.html`, ou
-- Servidor local: `python -m http.server 8000` e acesse `http://127.0.0.1:8000`.
+- Servidor local: `python -m http.server 8000` e acesse `http://127.0.0.1:8000`, ou
+- Docker (recomendado p/ deploy): `docker compose up -d --build` e acesse `http://localhost:8080`.
+
+## Docker
+- `Dockerfile` — imagem nginx:alpine servindo os estáticos na porta 80.
+- `nginx.conf` — gzip, cache de assets (30d) e HTML sem cache.
+- `docker-compose.yml` — sobe o site em `http://localhost:8080` (mapeia 8080:80).
+- Subir: `docker compose up -d --build` • Parar: `docker compose down`
+- Build manual: `docker build -t instinto-felino .` e `docker run -p 8080:80 instinto-felino`.
 
 ## Arquivos
 ```

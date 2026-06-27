@@ -1,0 +1,8 @@
+services:
+  landing:
+    build: .
+    image: instinto-felino:latest
+    container_name: instinto-felino
+    ports:
+      - "8080:80"
+    restart: unless-stopped
