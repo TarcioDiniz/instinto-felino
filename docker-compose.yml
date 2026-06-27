@@ -1,6 +1,7 @@
 services:
   landing:
     build: .
+    image: instinto-felino:v2
     container_name: instinto-felino
     ports:
       - "8080:80"
