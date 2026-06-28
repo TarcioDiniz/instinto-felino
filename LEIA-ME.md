@@ -71,3 +71,6 @@ O `.env` é ignorado pelo git (`.gitignore`).
 ## Pasta antiga
 A primeira versão ficou em `../rabo-veloz/` (marca "Rabo Veloz"). Pode apagar — esta pasta é
 autossuficiente e tem as imagens copiadas.
+
+## Colaboradores
+- AbnerSantosss
